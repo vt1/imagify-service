@@ -1,0 +1,24 @@
+<div class="row h-100">
+{{#each photos}}
+    <div class="card p-3">
+        <img src={{{this.url}}} class="card-img-top" alt="...">
+        <button id={{{this.photo_id}}} onclick=deleteImage(this.id) type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>         
+{{/each}}    
+</div>
+
+<script>
+    function deleteImage(photoId) {                
+        if(confirm("Are you sure to delete?")) {
+            var request = new XMLHttpRequest();
+            request.open('POST', '/photos/delete/' + photoId, true);
+            request.send(null);
+            
+            location.reload();
+        } else {
+            //
+        }
+    }
+</script>

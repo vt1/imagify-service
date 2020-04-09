@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
+        <h1 class="display-4 py-2 text-center">Load images</h1>
+        <div class="px-2">
+            <form method="POST" action="/load" class="justify-content-center">
+                <div class="form-group text-left">
+                    <label for="name">Album name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter album name">
+                </div>
+                <div class="form-group text-left">
+                    <label for="url">URL</label>
+                    <input type="text" name="url" class="form-control" placeholder="Enter URL (external images)">
+                </div>
+                {{# if errors }}
+                {{# each errors }}
+                    <p class="alert alert-danger">{{ this.msg }}</p>
+                {{/each}}        
+                {{/if}}        
+
+                {{# if success }}
+                    <p class="alert alert-success">Success</p>
+                {{/if}}
+                <button type="submit" class="btn btn-primary btn-lg">Create album</button>
+                <small class="form-text text-muted">After submit the new album with external images will be created</small>
+            </form>
+        </div>        
+    </div>
+</div>

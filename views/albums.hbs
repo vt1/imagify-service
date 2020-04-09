@@ -1,0 +1,21 @@
+<div class="row h-100">
+{{#each albums}}
+    <div class="card p-3" id="left" style="width: 18rem;">
+        <img src="/images/img-album.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{{this.name}}}</h5>
+            <p class="card-text">Resource URL: {{{this.resource_url}}}</p>
+            <a href="/photos/{{this.album_id}}" class="btn btn-primary">Go to photos</a>
+        </div>
+    </div>         
+{{/each}}    
+</div>
+
+<style>
+    #left {
+        float: left;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }    
+</style>
+
